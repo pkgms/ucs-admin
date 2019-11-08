@@ -1,14 +1,50 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Home from '../views/Home.vue';
+/* Layout */
+import Layout from '@/layout/layout.vue'
 
 Vue.use(VueRouter);
 
 const routes = [
+  { path: '*', redirect: '/haveNot' },
+  {
+    path: '/haveNot',
+    name: 'haveNot',
+    component: () => import('@/views/haveNot/haveNot.vue'),
+  },
   {
     path: '/',
-    name: 'home',
-    component: Home,
+    redirect: '/user',
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: () => import('@/views/login/login.vue'),
+  },
+  // 用户中心
+  {
+    path: '/user',
+    name: '用户中心',
+    redirect: '/user/index',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        name: 'index',
+        component: () => import('@/views/user/index.vue'),
+      },
+      {
+        path: 'edit/:id',
+        name: '用户编辑',
+        meta: {
+          type: '1',
+          status: [
+            { value: '/user/index', title: '用户中心', Field: '' },
+          ],
+        },
+        component: () => import('@/views/user/edit.vue'),
+      },
+    ],
   },
   {
     path: '/about',

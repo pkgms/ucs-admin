@@ -14,6 +14,8 @@
     "no-consecutive-blank-lines": false,
     "object-literal-sort-keys": false,
     "ordered-imports": false,
-    "quotemark": [true, "single"]
+    "quotemark": [true, "single"],
+    "semicolon": false, // 验证末尾分号
+    "comma-dangle": [0, "never"]  // 验证末尾逗号
   }
 }
