@@ -23,9 +23,8 @@ export default class dashboard extends Vue {
   private activated() {
     console.log(2);
   }
-  private deactivated() {
-    console.log(4);
-  }
+
+  private deactivated() {console.log(4);}
 }
 </script>
 

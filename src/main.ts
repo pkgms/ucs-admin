@@ -15,11 +15,6 @@ import './icons'; // icon
 import './permission'; // permission control
 import './utils/error-log'; // error log
 
-import { mockXHR } from '../mock/index.js';
-if (process.env.NODE_ENV === 'production') {
-  mockXHR()
-}
-
 import '@/styles/index.scss' // global css
 
 Vue.config.productionTip = false;
